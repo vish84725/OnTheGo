@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  OnTheGo
+
+  Created by Visal Hettiarachchi on 4/24/20.
+  Copyright © 2020 Visal Hettiarachchi. All rights reserved.
+*/
+
+//Base Messages
+"LoadingMessage" = "Loading...";
+"ErrorBase" = "Something went wrong, please try again!";
+"ErrorAlert" = "Error";
+"WarninfAlert" = "Warning";
+"InfoAlert" = "Info";
+
+//User Registration
+"ErrorUserCreation" = "Couldn't register user, please try again!";
+"ValRequiredEmail" = "Email field cannot be empty";
+"ValRequiredFirstName" = "First name field cannot be empty";
+"ValRequiredLastName" = "Last name field cannot be empty";
+"ValRequiredPassword" = "Password field cannot be empty";
+"ValRequiredConfirmPassword" = "Confirm password field cannot be empty";
+"ValidBothPassword" = "Passwords deosn't match";
+
+"AlertTitle" = "Alert";

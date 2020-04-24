@@ -1,0 +1,48 @@
+
+/* Class = "UIButton"; normalTitle = "Customer"; ObjectID = "3nn-O4-TQZ"; */
+"3nn-O4-TQZ.normalTitle" = "Customer";
+
+/* Class = "UINavigationItem"; title = "Login"; ObjectID = "4IX-SV-l9u"; */
+"4IX-SV-l9u.title" = "Login";
+
+/* Class = "UILabel"; text = "Last Name"; ObjectID = "Fa0-H5-DpV"; */
+"Fa0-H5-DpV.text" = "Last Name";
+
+/* Class = "UILabel"; text = "First Name"; ObjectID = "HmK-6f-elX"; */
+"HmK-6f-elX.text" = "First Name";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "IZq-Sl-Mls"; */
+"IZq-Sl-Mls.text" = "Password";
+
+/* Class = "UINavigationItem"; title = "Customer Registration"; ObjectID = "OIh-az-dbo"; */
+"OIh-az-dbo.title" = "Customer Registration";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "PAI-z1-LQs"; */
+"PAI-z1-LQs.text" = "Email";
+
+/* Class = "UILabel"; text = "Hello On the Go!"; ObjectID = "f6B-l4-mW9"; */
+"f6B-l4-mW9.text" = "Hello On the Go!";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "gQL-Pe-BaV"; */
+"gQL-Pe-BaV.normalTitle" = "Sign Up";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "gpX-JK-WgP"; */
+"gpX-JK-WgP.normalTitle" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Resgister Customer"; ObjectID = "jCs-vM-hJu"; */
+"jCs-vM-hJu.normalTitle" = "Resgister Customer";
+
+/* Class = "UILabel"; text = "User Name"; ObjectID = "mAG-6v-hHi"; */
+"mAG-6v-hHi.text" = "User Name";
+
+/* Class = "UINavigationItem"; title = "Customer Registration"; ObjectID = "oZV-pG-q73"; */
+"oZV-pG-q73.title" = "Customer Registration";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "r3J-v9-Hx1"; */
+"r3J-v9-Hx1.text" = "Password";
+
+/* Class = "UILabel"; text = "Confirm Password"; ObjectID = "vQ1-rT-GvW"; */
+"vQ1-rT-GvW.text" = "Confirm Password";
+
+/* Class = "UIButton"; normalTitle = "Service Provider"; ObjectID = "yeF-8g-QjP"; */
+"yeF-8g-QjP.normalTitle" = "Service Provider";

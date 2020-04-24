@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftOverlayShims
 
 class RegsiterCustomerViewController: UIViewController {
     
@@ -39,7 +40,8 @@ class RegsiterCustomerViewController: UIViewController {
         let isUserValid = authenticationManager.validateUserDetails(email: email, firstName: firstName, lastName: lastName, password: password, confirmPassword: confirmPassword)
         
         if isUserValid{
-            let user = UserDetails(email: email!, firstName: firstName!, lastName: lastName!)
+            let user = UserDetails(email: email!, firstName: firstName!, lastName: lastName!, uid: nil)
+            self.showWaitOverlay()
             authenticationManager.createUser(with: user, password: password!)
             
         }else{
@@ -51,11 +53,17 @@ class RegsiterCustomerViewController: UIViewController {
 //MARK: - Authentication Manager Delegate
 extension RegsiterCustomerViewController: AuthenticationManagerDelegate{
     func didCreateUser(_ authenticationManager: AuthenticationManager, userDetails: UserDetails) {
+        self.removeAllOverlays()
         self.performSegue(withIdentifier: K.registerSegue, sender: self)
     }
     
     func didCreateUserFailWithError(error: Error) {
-        //ToDo: Add Alert
-        print("Could not create user \(error.localizedDescription)")
+        self.removeAllOverlays()
+        AlertsHandler.showAlertWithErrorMessage(title: NSLocalizedString(K.Alert.ErrorTitle, comment: ""), message:NSLocalizedString(K.ErrorMessage.UserDetails.createUser, comment: "") )
+        print(error.localizedDescription, Date(), to: &Logger.log)
+    }
+    
+    func didFailedUserValidation(error: String) {
+        AlertsHandler.showAlertWithErrorMessage(title: NSLocalizedString(K.Alert.ErrorTitle, comment: ""), message: error)
     }
 }

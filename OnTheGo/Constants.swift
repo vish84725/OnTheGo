@@ -23,11 +23,36 @@ struct K {
 //    }
     
     struct FStore {
-        //MARK: Users Collection
-        static let userUid = "uid"
-        static let userCollectionName = "users"
-        static let firstNameField = "firstName"
-        static let lastNameField = "lastName"
-        static let emailField = "email"
+        struct User {
+            //MARK: Users Collection
+            static let userUid = "uid"
+            static let userCollectionName = "users"
+            static let firstNameField = "firstName"
+            static let lastNameField = "lastName"
+            static let emailField = "email"
+            static let createdDate = "createdDate"
+        }
+
+    }
+    
+    struct ErrorMessage {
+        struct UserDetails {
+            static let createUser = "ErrorUserCreation"
+        }
+    }
+    
+    struct ValidationMessage {
+        struct UserDetails {
+            static let valRequiredEmail = "ValRequiredEmail"
+            static let valRequiredFname = "ValRequiredFirstName"
+            static let valRequredLName = "ValRequiredLastName"
+            static let valRequiredPassword = "ValRequiredPassword"
+            static let valRequiredCPassword = "ValRequiredConfirmPassword"
+            static let valMatchPassword = "ValidBothPassword"
+        }
+    }
+    
+    struct Alert {
+        static let ErrorTitle = "ErrorAlert"
     }
 }

@@ -13,5 +13,6 @@ struct UserDetails{
     let email: String
     let firstName: String
     let lastName: String
+    let uid: String?
     
 }
