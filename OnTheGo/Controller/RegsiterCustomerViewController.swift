@@ -26,7 +26,7 @@ class RegsiterCustomerViewController: UIViewController {
     }
     
     func initService(){
-        authenticationManager.delegate = self
+        authenticationManager.registerUserManagerdelegate = self
     }
     
     //MARK: Actions
@@ -50,8 +50,8 @@ class RegsiterCustomerViewController: UIViewController {
     }
     
 }
-//MARK: - Authentication Manager Delegate
-extension RegsiterCustomerViewController: AuthenticationManagerDelegate{
+//MARK: - Register User Manager Delegate
+extension RegsiterCustomerViewController: RegisterUserManagerDelegate{
     func didCreateUser(_ authenticationManager: AuthenticationManager, userDetails: UserDetails) {
         self.removeAllOverlays()
         self.performSegue(withIdentifier: K.registerSegue, sender: self)

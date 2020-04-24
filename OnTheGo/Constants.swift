@@ -13,6 +13,7 @@ struct K {
 //    static let cellIdentifier = "ReusableCell"
 //    static let cellNibName = "MessageCell"
     static let registerSegue = "RegisterSegue"
+    static let loginSegue = "LoginSegue"
 //    static let loginSegue = "LoginToChat"
     
 //    struct BrandColors {
@@ -38,6 +39,7 @@ struct K {
     struct ErrorMessage {
         struct UserDetails {
             static let createUser = "ErrorUserCreation"
+            static let loginUser = "ErrorUserLogin"
         }
     }
     

@@ -85,10 +85,10 @@
 		324B68D72452CD6A00B0F706 /* OnTheGo */ = {
 			isa = PBXGroup;
 			children = (
-				324B69082453580800B0F706 /* Logging */,
 				324B68EE2452CEF300B0F706 /* Model */,
 				324B68ED2452CEE800B0F706 /* View */,
 				324B68EC2452CED900B0F706 /* Controller */,
+				324B69082453580800B0F706 /* Logging */,
 				324B68FF2453301200B0F706 /* Utilities */,
 				324B68D82452CD6A00B0F706 /* AppDelegate.swift */,
 				324B68DA2452CD6A00B0F706 /* SceneDelegate.swift */,

@@ -53,7 +53,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAG-6v-hHi">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAG-6v-hHi">
                                                                 <rect key="frame" x="20" y="24" width="130" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="130" id="TFi-XS-zm4"/>
@@ -87,7 +87,7 @@
                                                                     <constraint firstAttribute="height" constant="35" id="wXe-YZ-7vN"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3J-v9-Hx1">
                                                                 <rect key="frame" x="20" y="23.5" width="130" height="25"/>
@@ -130,6 +130,9 @@
                                                         <state key="normal" title="Login">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Ga-Tt-Od8"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQL-Pe-BaV">
                                                         <rect key="frame" x="132" y="84.5" width="150" height="60"/>
@@ -170,10 +173,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="4IX-SV-l9u"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="xC8-64-mMa" id="Me6-OK-4vT"/>
+                        <outlet property="passwordTextField" destination="r5e-Ma-iT7" id="Fk9-bc-br6"/>
+                        <segue destination="U7D-8K-caM" kind="show" identifier="LoginSegue" id="txh-cJ-jLL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="116.51785714285714"/>
+            <point key="canvasLocation" x="1257" y="101"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="hYh-7c-xYM">
@@ -230,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7EN-MC-3h8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1913" y="-345"/>
+            <point key="canvasLocation" x="2286" y="-771"/>
         </scene>
         <!--Customer Registration-->
         <scene sceneID="AzW-Vz-Lq6">
@@ -246,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7M-QI-8bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2806" y="-46"/>
+            <point key="canvasLocation" x="3287" y="-235"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1bV-JN-jKQ">
@@ -274,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uyc-No-3BX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3894" y="-386"/>
+            <point key="canvasLocation" x="2286" y="92"/>
         </scene>
         <!--Customer Registration-->
         <scene sceneID="ceV-MO-eI7">
@@ -421,7 +429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0g-zO-mwM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2806" y="-735"/>
+            <point key="canvasLocation" x="3287" y="-967"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2wY-qi-UmD">
@@ -439,10 +447,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vkB-gf-UCC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
+            <point key="canvasLocation" x="449" y="100"/>
         </scene>
     </scenes>
     <resources>
         <image name="ic_logo" width="216" height="267.5"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="txh-cJ-jLL"/>
+    </inferredMetricsTieBreakers>
 </document>

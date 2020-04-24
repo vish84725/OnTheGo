@@ -15,11 +15,16 @@
 
 //User Registration
 "ErrorUserCreation" = "Couldn't register user, please try again!";
+
+//User Validation
 "ValRequiredEmail" = "Email field cannot be empty";
 "ValRequiredFirstName" = "First name field cannot be empty";
 "ValRequiredLastName" = "Last name field cannot be empty";
 "ValRequiredPassword" = "Password field cannot be empty";
 "ValRequiredConfirmPassword" = "Confirm password field cannot be empty";
 "ValidBothPassword" = "Passwords deosn't match";
+
+//User Login
+"ErrorUserLogin" = "Email or password is invalid, please try again";
 
 "AlertTitle" = "Alert";

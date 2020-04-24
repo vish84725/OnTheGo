@@ -9,18 +9,27 @@
 import Foundation
 import Firebase
 
-//MARK: - Authentication Manager Delagate
-protocol AuthenticationManagerDelegate {
+//MARK: - Register User Manager Delagate
+protocol RegisterUserManagerDelegate {
     func didCreateUser(_ authenticationManager: AuthenticationManager, userDetails: UserDetails)
     func didCreateUserFailWithError( error: Error)
     func didFailedUserValidation(error: String)
 }
 
+//MARK: - Login User Manager Delegate
+protocol LoginUserManagerDelegate {
+    func didLoginUser(_ authenticationManager: AuthenticationManager)
+    func didLoginUserFailedWithError(error: Error)
+    func didLoginUserValidationFailed(error: String)
+}
+
+
 //MARK: - Authentication Manager
 struct AuthenticationManager{
     //MARK: Properties
-    var delegate: AuthenticationManagerDelegate?
-    let db = Firestore.firestore()
+    var registerUserManagerdelegate: RegisterUserManagerDelegate?
+    var loginUserManagerdelegate: LoginUserManagerDelegate?
+    private let db = Firestore.firestore()
     
     
     //MARK: Validate User
@@ -49,13 +58,24 @@ struct AuthenticationManager{
         
     }
     
-    func validateMessage(validationMessage: String)->Bool{
+    func validateUserDetails(email: String?, password: String?)->Bool{
+        if email == nil || email == ""{
+            return validateMessage(validationMessage: K.ValidationMessage.UserDetails.valRequiredEmail)
+        }
+        else if password == nil || password == ""{
+            return validateMessage(validationMessage: K.ValidationMessage.UserDetails.valRequiredPassword)
+        }
+        return true
+        
+    }
+    
+    private func validateMessage(validationMessage: String)->Bool{
         let localizedValidationMessage = getLocalizedMessage(message: validationMessage, comment: "")
-        delegate?.didFailedUserValidation(error: localizedValidationMessage)
+        registerUserManagerdelegate?.didFailedUserValidation(error: localizedValidationMessage)
         return false
     }
     
-    func getLocalizedMessage(message: String, comment: String)->String{
+    private func getLocalizedMessage(message: String, comment: String)->String{
         return NSLocalizedString(message, comment: comment)
     }
     
@@ -63,7 +83,7 @@ struct AuthenticationManager{
     func createUser(with user: UserDetails, password pass: String)->Void{
         Auth.auth().createUser(withEmail: user.email, password: pass) { (authData, error) in
             if let e = error{
-                self.delegate?.didCreateUserFailWithError(error: e)
+                self.registerUserManagerdelegate?.didCreateUserFailWithError(error: e)
             }else{
                 self.db.collection(K.FStore.User.userCollectionName)
                     .addDocument(data: [K.FStore.User.firstNameField:user.firstName,
@@ -73,15 +93,28 @@ struct AuthenticationManager{
                                         K.FStore.User.userUid:authData!.user.uid])
                     {(error) in
                         if let e = error{
-                            self.delegate?.didCreateUserFailWithError(error: e)
+                            self.registerUserManagerdelegate?.didCreateUserFailWithError(error: e)
                         }
                         else{
-                            self.delegate?.didCreateUser(self, userDetails: user)
+                            //Success Register User
+                            self.registerUserManagerdelegate?.didCreateUser(self, userDetails: user)
                         }
                 }
                 
             }
         }
+    }
+    
+    //MARK: Login User
+    func loginUser(with email: String, for password: String){
+        Auth.auth().signIn(withEmail: email, password: password) { (authData, error) in
+             if let e = error {
+                self.loginUserManagerdelegate?.didLoginUserFailedWithError(error: e)
+             }else {
+                //Success loggin
+                self.loginUserManagerdelegate?.didLoginUser(self)
+             }
+         }
     }
     
     
