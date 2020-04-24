@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>168290010116-ukh8n2lel7q9bv3eu2a25kjs5sdaknfi.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.168290010116-ukh8n2lel7q9bv3eu2a25kjs5sdaknfi</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC0R5khiWAuqonvBDNvVHqpycXtSzwN0ls</string>
+	<key>GCM_SENDER_ID</key>
+	<string>168290010116</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>home.OnTheGo</string>
+	<key>PROJECT_ID</key>
+	<string>onthego-eeb0b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>onthego-eeb0b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:168290010116:ios:3e9f0afab27354e4d5a151</string>
+	<key>DATABASE_URL</key>
+	<string>https://onthego-eeb0b.firebaseio.com</string>
+</dict>
+</plist>
