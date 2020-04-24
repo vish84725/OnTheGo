@@ -13,6 +13,9 @@
 		324B68E02452CD6A00B0F706 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324B68DE2452CD6A00B0F706 /* Main.storyboard */; };
 		324B68E22452CD6F00B0F706 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 324B68E12452CD6F00B0F706 /* Assets.xcassets */; };
 		324B68E52452CD6F00B0F706 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324B68E32452CD6F00B0F706 /* LaunchScreen.storyboard */; };
+		324B68F02452E64F00B0F706 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324B68EF2452E64F00B0F706 /* RegisterViewController.swift */; };
+		324B68F22452E8A600B0F706 /* RegsiterCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324B68F12452E8A600B0F706 /* RegsiterCustomerViewController.swift */; };
+		324B68F42452E8CA00B0F706 /* ResgieterServiceProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324B68F32452E8CA00B0F706 /* ResgieterServiceProviderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		324B68E12452CD6F00B0F706 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		324B68E42452CD6F00B0F706 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		324B68E62452CD6F00B0F706 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		324B68EF2452E64F00B0F706 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		324B68F12452E8A600B0F706 /* RegsiterCustomerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegsiterCustomerViewController.swift; sourceTree = "<group>"; };
+		324B68F32452E8CA00B0F706 /* ResgieterServiceProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResgieterServiceProviderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,9 @@
 			isa = PBXGroup;
 			children = (
 				324B68DC2452CD6A00B0F706 /* LoginViewController.swift */,
+				324B68EF2452E64F00B0F706 /* RegisterViewController.swift */,
+				324B68F12452E8A600B0F706 /* RegsiterCustomerViewController.swift */,
+				324B68F32452E8CA00B0F706 /* ResgieterServiceProviderViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -162,9 +171,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				324B68F42452E8CA00B0F706 /* ResgieterServiceProviderViewController.swift in Sources */,
 				324B68DD2452CD6A00B0F706 /* LoginViewController.swift in Sources */,
+				324B68F22452E8A600B0F706 /* RegsiterCustomerViewController.swift in Sources */,
 				324B68D92452CD6A00B0F706 /* AppDelegate.swift in Sources */,
 				324B68DB2452CD6A00B0F706 /* SceneDelegate.swift in Sources */,
+				324B68F02452E64F00B0F706 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
