@@ -23,5 +23,11 @@ class ProductTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func updateCell(with product: Product)
+    {
+        productNameLabel.text = product.name
+        amountLabel.text = String(product.quantity)
+    }
 
 }

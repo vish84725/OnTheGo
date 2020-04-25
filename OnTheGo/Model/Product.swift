@@ -10,7 +10,8 @@ import Foundation
 
 struct Product{
     let uid: String?
-    let productName: String
+    let name: String
     let categoryId: String
+    let category: ProductCategory? = nil
     let quantity: Int
 }

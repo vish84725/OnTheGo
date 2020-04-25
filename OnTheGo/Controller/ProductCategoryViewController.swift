@@ -21,6 +21,10 @@ class ProductCategoryViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.setHidesBackButton(true, animated: true)
+    }
+    
     func initService()->Bool{
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -60,6 +64,13 @@ class ProductCategoryViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! ProductsViewController
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedProductCategory = categoryList[indexPath.row]
+        }
+    }
+    
 }
 
 //MARK: - UITableViewDataSource
@@ -83,7 +94,7 @@ extension ProductCategoryViewController: UITableViewDataSource{
 //MARK: - UITableViewDelegate
 extension ProductCategoryViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Doesnt need this functionality to chat
+        performSegue(withIdentifier: K.productSegue, sender: self)
     }
 }
 
@@ -91,13 +102,14 @@ extension ProductCategoryViewController: UITableViewDelegate{
 extension ProductCategoryViewController: ProductCategoryManagerDelegate{
     func didLoadProductCategories(_ productsCategoryManager: ProductCategoryManager, categories: [ProductCategory]) {
         categoryList.removeAll()
-        for cat in categories{
-            categoryList.append(cat)
-            DispatchQueue.main.async {
-                self.removeAllOverlays()
-                self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.removeAllOverlays()
+            for cat in categories{
+                self.categoryList.append(cat)
             }
+            self.tableView.reloadData()
         }
+        
     }
     
     func didCreateProductCategory(_ productsCategoryManager: ProductCategoryManager, category: ProductCategory) {
@@ -119,6 +131,4 @@ extension ProductCategoryViewController: ProductCategoryManagerDelegate{
     func didValidateProductCategoryFailWithError(errorMessage: String) {
         AlertsHandler.showAlertWithErrorMessage(title: NSLocalizedString(K.Alert.ErrorTitle, comment: ""), message: errorMessage)
     }
-    
-    
 }

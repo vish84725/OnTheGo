@@ -15,6 +15,7 @@ struct K {
     static let registerSegue = "RegisterSegue"
     static let loginSegue = "LoginSegue"
     static let adminLoginSegue = "AdminLoginSegue"
+    static let productSegue = "ProductSeugue"
     //    static let loginSegue = "LoginToChat"
     
     //    struct BrandColors {
