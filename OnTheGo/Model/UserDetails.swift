@@ -7,11 +7,25 @@
 //
 
 import Foundation
+import Firebase
 
 struct UserDetails{
-    let email: String
-    let firstName: String
-    let lastName: String
-    let uid: String?
+    var email: String
+    var firstName: String
+    var lastName: String
+    var uid: String?
+    var userRole: UserRole
+    var phoneNumber:Int? = nil
+    var nic: String? = nil
+    var categoryId: String? = nil
     
 }
+
+enum UserRole: Int {
+    case admin = 1
+    case serviceProvider
+    case customer
+}
+
+
+

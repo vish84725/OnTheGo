@@ -13,6 +13,7 @@ struct K {
     //    static let cellIdentifier = "ReusableCell"
     //    static let cellNibName = "MessageCell"
     static let registerSegue = "RegisterSegue"
+    static let registerServiceProviderSegue = "RegisterSProviderSegue"
     static let loginSegue = "LoginSegue"
     static let adminLoginSegue = "AdminLoginSegue"
     static let productSegue = "ProductSeugue"
@@ -33,6 +34,10 @@ struct K {
             static let firstNameField = "firstName"
             static let lastNameField = "lastName"
             static let emailField = "email"
+            static let userRole = "userRole"
+            static let phoneNumber = "phoneNumber"
+            static let nic = "nic"
+            static let productCategory = "productCategoryId"
             static let createdDate = "createdDate"
         }
         
@@ -63,12 +68,12 @@ struct K {
         }
         
         struct ProductCategory {
-             static let create = "ErrorProductCategoryCreation"
-         }
+            static let create = "ErrorProductCategoryCreation"
+        }
         
         struct Product {
-             static let create = "ErrorProductCreation"
-         }
+            static let create = "ErrorProductCreation"
+        }
     }
     
     struct ValidationMessage {
@@ -79,6 +84,10 @@ struct K {
             static let valRequiredPassword = "ValRequiredPassword"
             static let valRequiredCPassword = "ValRequiredConfirmPassword"
             static let valMatchPassword = "ValidBothPassword"
+            static let valRequiredPhoneNumber = "ValRequiredPhoneNumber"
+            static let valTypePhoneNumber = "ValTypePhoneNumber"
+            static let valRequiredNic = "ValRequiredNic"
+            static let valRequiredCategory = "ValRequiredCategory"
         }
         
         struct ProductCategory {

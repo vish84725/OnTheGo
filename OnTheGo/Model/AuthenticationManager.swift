@@ -59,6 +59,43 @@ struct AuthenticationManager{
         
     }
     
+    func validateProviderDetails(email: String?, firstName: String?, lastName: String?, password: String?, confirmPassword: String?, phoneNumber: String?, nic: String?, categoryId: String?)->Bool{
+        
+        if firstName == nil || firstName == ""{
+            return validateMessage(validationMessage: K.ValidationMessage.UserDetails.valRequiredFname)
+        }
+        else if lastName == nil || lastName == ""{
+            return validateMessage(validationMessage: K.ValidationMessage.UserDetails.valRequredLName)
+        }
+        else if email == nil || email == ""{
+            return validateMessage(validationMessage: K.ValidationMessage.UserDetails.valRequiredEmail)
+        }
+        else if phoneNumber == nil || phoneNumber == ""{
+            return validateMessage(validationMessage: K.ValidationMessage.UserDetails.valRequiredPhoneNumber)
+        }
+        else if Int(phoneNumber!) == nil{
+            return validateMessage(validationMessage: K.ValidationMessage.UserDetails.valTypePhoneNumber)
+        }
+        else if nic == nil || nic == ""{
+            return validateMessage(validationMessage: K.ValidationMessage.UserDetails.valRequiredNic)
+        }
+        else if categoryId == nil || categoryId == ""{
+            return validateMessage(validationMessage: K.ValidationMessage.UserDetails.valRequiredCategory)
+        }
+        else if password == nil || password == ""{
+            return validateMessage(validationMessage: K.ValidationMessage.UserDetails.valRequiredPassword)
+        }
+        else if confirmPassword == nil || confirmPassword == ""{
+            return validateMessage(validationMessage: K.ValidationMessage.UserDetails.valRequiredCPassword)
+        }
+        else if password != confirmPassword{
+            return validateMessage(validationMessage: K.ValidationMessage.UserDetails.valMatchPassword)
+        }
+        
+        return true
+        
+    }
+    
     func validateUserDetails(email: String?, password: String?)->Bool{
         if email == nil || email == ""{
             return validateMessage(validationMessage: K.ValidationMessage.UserDetails.valRequiredEmail)
@@ -86,7 +123,11 @@ struct AuthenticationManager{
                     .addDocument(data: [K.FStore.User.firstNameField:user.firstName,
                                         K.FStore.User.emailField:user.email,
                                         K.FStore.User.lastNameField:user.lastName,
+                                        K.FStore.User.userRole:user.userRole.rawValue,
                                         K.FStore.User.createdDate:Date().timeIntervalSince1970,
+                                        K.FStore.User.phoneNumber:user.phoneNumber != nil ? user.phoneNumber!: 0,
+                                        K.FStore.User.nic:user.nic != nil ? user.nic! : 0,
+                                        K.FStore.User.productCategory:user.categoryId != nil ? user.categoryId! : 0,
                                         K.FStore.User.userUid:authData!.user.uid])
                     {(error) in
                         if let e = error{
@@ -105,13 +146,13 @@ struct AuthenticationManager{
     //MARK: Login User
     func loginUser(with email: String, for password: String){
         Auth.auth().signIn(withEmail: email, password: password) { (authData, error) in
-             if let e = error {
+            if let e = error {
                 self.loginUserManagerdelegate?.didLoginUserFailedWithError(error: e)
-             }else {
+            }else {
                 //Success loggin
                 self.loginUserManagerdelegate?.didLoginUser(self)
-             }
-         }
+            }
+        }
     }
     
     

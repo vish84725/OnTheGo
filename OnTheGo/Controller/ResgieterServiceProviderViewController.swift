@@ -23,6 +23,7 @@ class ResgieterServiceProviderViewController: UIViewController {
     private var selectedCategory: ProductCategory?
     private var categoryList = [ProductCategory]()
     private var categoryManager: ProductCategoryManager = ProductCategoryManager()
+    private var authenticationManager = AuthenticationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,7 @@ class ResgieterServiceProviderViewController: UIViewController {
     
     private func initService()->Bool{
         categoryManager.delegate = self
+        authenticationManager.registerUserManagerdelegate = self
         createPickerView()
         dismissPickerView()
         return true
@@ -45,6 +47,29 @@ class ResgieterServiceProviderViewController: UIViewController {
     
     //MARK: Actions
     @IBAction func registerProviderButtonPressed(_ sender: UIButton) {
+        let email = emailTextField.text
+        let firstName = firstNameTextField.text
+        let lastName = lastNameTextField.text
+        let password = passwordTextField.text
+        let confirmPassword = confirmPasswordTextField.text
+        let phoneNumber = phoneNumberTextField.text
+        let nic = nicTextField.text
+        let prodCatId = selectedCategory?.uid
+        
+        let isUserValid = authenticationManager.validateProviderDetails(email: email, firstName: firstName, lastName: lastName, password: password, confirmPassword: confirmPassword, phoneNumber: phoneNumber, nic: nic, categoryId: prodCatId)
+        
+        if isUserValid{
+            var user = UserDetails(email: email!, firstName: firstName!, lastName: lastName!, uid: nil,userRole: .serviceProvider)
+            
+            user.categoryId = prodCatId!
+            user.phoneNumber = Int(phoneNumber!)
+            user.nic = nic!
+            self.showWaitOverlay()
+            authenticationManager.createUser(with: user, password: password!)
+            
+        }else{
+            //ToDo: Add Alert and handle
+        }
     }
     
     func createPickerView() {
@@ -117,6 +142,27 @@ extension ResgieterServiceProviderViewController: ProductCategoryManagerDelegate
         DispatchQueue.main.async {
             self.removeAllOverlays()
         }
+    }
+    
+    
+}
+
+//MARK: - Authentication Manager Delegate
+extension ResgieterServiceProviderViewController: RegisterUserManagerDelegate{
+    func didCreateUser(_ authenticationManager: AuthenticationManager, userDetails: UserDetails){
+        self.removeAllOverlays()
+        self.performSegue(withIdentifier: K.registerServiceProviderSegue, sender: self)
+    }
+    
+    func didCreateUserFailWithError(error: Error) {
+        self.removeAllOverlays()
+        AlertsHandler.showAlertWithErrorMessage(title: NSLocalizedString(K.Alert.ErrorTitle, comment: ""), message:NSLocalizedString(K.ErrorMessage.UserDetails.createUser, comment: "") )
+        print(error.localizedDescription, Date(), to: &Logger.log)
+    }
+    
+    func didFailedUserValidation(error: String) {
+        print(error, Date(), to: &Logger.log)
+        AlertsHandler.showAlertWithErrorMessage(title: NSLocalizedString(K.Alert.ErrorTitle, comment: ""), message: error)
     }
     
     

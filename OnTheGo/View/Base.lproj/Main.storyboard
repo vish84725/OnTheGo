@@ -584,16 +584,17 @@
                         <outlet property="passwordTextField" destination="8wi-Oj-MPy" id="haP-ji-Pog"/>
                         <outlet property="phoneNumberTextField" destination="v8R-J2-HlX" id="m0q-Bp-qeU"/>
                         <outlet property="productCategoryTextField" destination="s6y-3B-cIT" id="qfV-1L-Ed8"/>
+                        <segue destination="U7D-8K-caM" kind="show" identifier="RegisterSProviderSegue" id="ciz-fZ-VQ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7M-QI-8bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3287" y="-235"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="1bV-JN-jKQ">
             <objects>
-                <viewController id="U7D-8K-caM" sceneMemberID="viewController">
+                <viewController id="U7D-8K-caM" customClass="HomeViewController" customModule="OnTheGo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5u2-IH-oUP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -612,7 +613,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vNe-QJ-cwu"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cdE-f5-Tcb"/>
+                    <navigationItem key="navigationItem" id="cdE-f5-Tcb">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="Unz-b1-XG8">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="U7D-8K-caM" id="5fX-Nu-VN4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uyc-No-3BX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -788,6 +795,6 @@
         <image name="ic_logo" width="216" height="267.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Aw-Mz-6F4"/>
+        <segue reference="ciz-fZ-VQ6"/>
     </inferredMetricsTieBreakers>
 </document>

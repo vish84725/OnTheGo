@@ -40,7 +40,7 @@ class RegsiterCustomerViewController: UIViewController {
         let isUserValid = authenticationManager.validateUserDetails(email: email, firstName: firstName, lastName: lastName, password: password, confirmPassword: confirmPassword)
         
         if isUserValid{
-            let user = UserDetails(email: email!, firstName: firstName!, lastName: lastName!, uid: nil)
+            let user = UserDetails(email: email!, firstName: firstName!, lastName: lastName!, uid: nil,userRole: .customer)
             self.showWaitOverlay()
             authenticationManager.createUser(with: user, password: password!)
             
@@ -52,7 +52,7 @@ class RegsiterCustomerViewController: UIViewController {
 }
 //MARK: - Register User Manager Delegate
 extension RegsiterCustomerViewController: RegisterUserManagerDelegate{
-    func didCreateUser(_ authenticationManager: AuthenticationManager, userDetails: UserDetails) {
+    func didCreateUser(_ authenticationManager: AuthenticationManager, userDetails: UserDetails){
         self.removeAllOverlays()
         self.performSegue(withIdentifier: K.registerSegue, sender: self)
     }

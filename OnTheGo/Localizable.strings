@@ -27,6 +27,10 @@
 "ValRequiredPassword" = "Password field cannot be empty";
 "ValRequiredConfirmPassword" = "Confirm password field cannot be empty";
 "ValidBothPassword" = "Passwords deosn't match";
+"ValRequiredPhoneNumber" = "Phone number field cannot be empty";
+"ValTypePhoneNumber" = "Phone number should only contains numbers";
+"ValRequiredNic" = "Nic field cannot be empty";
+"ValRequiredCategory" = "Category field cannot be empty";
 
 //User Login
 "ErrorUserLogin" = "Email or password is invalid, please try again";
