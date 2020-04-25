@@ -13,6 +13,10 @@
 "WarninfAlert" = "Warning";
 "InfoAlert" = "Info";
 
+/*
+ User Details
+*/
+
 //User Registration
 "ErrorUserCreation" = "Couldn't register user, please try again!";
 
@@ -26,5 +30,27 @@
 
 //User Login
 "ErrorUserLogin" = "Email or password is invalid, please try again";
+
+/*
+ Product Category
+ */
+
+//Product Category Validation
+"ValRequiredCategoryName" = "Product category field cannot be empty";
+
+//Create ProductCategory
+"ErrorProductCategoryCreation" = "Couldn't create product category, please try again!";
+
+/*
+ Product
+ */
+"ValRequiredProductName" = "Product name field cannot be empty";
+"ValRequiredPCategory" = "Product category cannot be empty";
+
+//Create Product
+"ErrorProductCreation" = "Couldn't create product, please try again!";
+
+
+
 
 "AlertTitle" = "Alert";

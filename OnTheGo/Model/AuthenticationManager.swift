@@ -30,6 +30,7 @@ struct AuthenticationManager{
     var registerUserManagerdelegate: RegisterUserManagerDelegate?
     var loginUserManagerdelegate: LoginUserManagerDelegate?
     private let db = Firestore.firestore()
+    private let helper = Helper()
     
     
     //MARK: Validate User
@@ -70,13 +71,9 @@ struct AuthenticationManager{
     }
     
     private func validateMessage(validationMessage: String)->Bool{
-        let localizedValidationMessage = getLocalizedMessage(message: validationMessage, comment: "")
+        let localizedValidationMessage = helper.getLocalizedMessage(message: validationMessage, comment: "")
         registerUserManagerdelegate?.didFailedUserValidation(error: localizedValidationMessage)
         return false
-    }
-    
-    private func getLocalizedMessage(message: String, comment: String)->String{
-        return NSLocalizedString(message, comment: comment)
     }
     
     //MARK: Create User

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Firebase
 
 struct UserDetails{
     let email: String

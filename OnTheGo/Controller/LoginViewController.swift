@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: LoginUserManagerDelegate{
     func didLoginUser(_ authenticationManager: AuthenticationManager) {
         self.removeAllOverlays()
-        self.performSegue(withIdentifier: K.loginSegue, sender: self)
+        self.performSegue(withIdentifier: K.adminLoginSegue, sender: self)
         
     }
     
