@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     private var authenticationManager = AuthenticationManager()
+    private var loggedUser:UserDetails? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,14 @@ class LoginViewController: UIViewController {
     
     func initService(){
         authenticationManager.loginUserManagerdelegate = self
+        authenticationManager.userDetailsDelegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.loginSegue{
+            let destinationVC = segue.destination as! HomeViewController
+            destinationVC.loggedInUser = loggedUser
+        }
     }
     
     
@@ -43,10 +52,13 @@ class LoginViewController: UIViewController {
 
 //MARK: - Authentication Manager Delegate
 extension LoginViewController: LoginUserManagerDelegate{
-    func didLoginUser(_ authenticationManager: AuthenticationManager) {
-        self.removeAllOverlays()
-        self.performSegue(withIdentifier: K.adminLoginSegue, sender: self)
+    func didLoginUser(_ authenticationManager: AuthenticationManager, userId: String) {
+        DispatchQueue.main.async {
+            self.removeAllOverlays()
+            self.showWaitOverlay() //Should be loading user info
+        }
         
+        self.authenticationManager.getUser(with: userId)
     }
     
     func didLoginUserFailedWithError(error: Error) {
@@ -57,6 +69,25 @@ extension LoginViewController: LoginUserManagerDelegate{
     
     func didLoginUserValidationFailed(error: String) {
         AlertsHandler.showAlertWithErrorMessage(title: NSLocalizedString(K.Alert.ErrorTitle, comment: ""), message: error)
+    }
+    
+    
+}
+
+//MARK: - User Details Delegate
+extension LoginViewController: UserDetailsDelegate{
+    func didUserDetailsLoaded(_ authenticationManager: AuthenticationManager, from user: UserDetails) {
+        loggedUser = user
+        self.removeAllOverlays()
+        if user.userRole == .admin{
+            self.performSegue(withIdentifier: K.adminLoginSegue, sender: self)
+        }
+        else if user.userRole == .customer{
+            self.performSegue(withIdentifier: K.loginSegue, sender: self)
+        }
+        else if user.userRole == .serviceProvider{
+            self.performSegue(withIdentifier: K.loginSegue, sender: self)
+        }
     }
     
     

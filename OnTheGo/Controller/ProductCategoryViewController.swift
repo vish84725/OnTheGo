@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProductCategoryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -38,6 +39,20 @@ class ProductCategoryViewController: UIViewController {
     }
     
     //MARK: Actions
+    private func logOut(){
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            navigationController?.popToRootViewController(animated: true)
+        }
+        catch let signOutError as NSError{
+            print("Error Signing out : %@", signOutError)
+        }
+    }
+    
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        logOut()
+    }
     @IBAction func addCategoryButtonPressed(_ sender: UIBarButtonItem) {
         
         //ToDo: This has to be added to a new modal view controller

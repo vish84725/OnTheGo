@@ -45,7 +45,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rB-ZX-4dh">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="72.5"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="vish847255@gmail.com" borderStyle="roundedRect" placeholder="Email Address " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xC8-64-mMa">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xC8-64-mMa">
                                                                 <rect key="frame" x="170" y="19" width="224" height="35"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="35" id="Pvw-Dz-s8F"/>
@@ -81,7 +81,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ba4-DV-zTV">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="72.5"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r5e-Ma-iT7">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r5e-Ma-iT7">
                                                                 <rect key="frame" x="170" y="18.5" width="224" height="35"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="35" id="wXe-YZ-7vN"/>
@@ -232,11 +232,18 @@
                         <viewLayoutGuide key="safeArea" id="hRp-Qr-cA7"/>
                     </view>
                     <navigationItem key="navigationItem" title="Product Categories" id="yPd-E4-P9p">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ve7-vR-zE4">
-                            <connections>
-                                <action selector="addCategoryButtonPressed:" destination="lwy-bx-B4s" id="2hz-FF-55r"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Log Out" id="Ru2-p1-4Mc">
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="lwy-bx-B4s" id="xFP-yJ-u5q"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="ve7-vR-zE4">
+                                <connections>
+                                    <action selector="addCategoryButtonPressed:" destination="lwy-bx-B4s" id="2hz-FF-55r"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ePX-J8-Via" id="eH2-BM-Cbg"/>
@@ -620,6 +627,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="homeDisplayLabel" destination="f6B-l4-mW9" id="9eQ-z9-CsN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uyc-No-3BX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -795,6 +805,6 @@
         <image name="ic_logo" width="216" height="267.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ciz-fZ-VQ6"/>
+        <segue reference="txh-cJ-jLL"/>
     </inferredMetricsTieBreakers>
 </document>

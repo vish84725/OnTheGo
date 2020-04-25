@@ -10,7 +10,13 @@ import UIKit
 import Firebase
 
 class HomeViewController: UIViewController {
-    
+    @IBOutlet weak var homeDisplayLabel: UILabel!
+    var loggedInUser: UserDetails? {
+         didSet {
+             setData()
+         }
+     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,11 +25,22 @@ class HomeViewController: UIViewController {
         navigationItem.hidesBackButton = true
     }
     
+    private func setData(){
+        if let user = loggedInUser{
+            DispatchQueue.main.async {
+                self.homeDisplayLabel.text = "Hi \(user.firstName) \(user.lastName)"
+            }
+
+            print(user.firstName)
+        }
+    }
+    
     //MARK: Actions
     @IBAction func logoutButtonPressed(_ sender: Any) {
         logout()
     }
     
+    //TO DO: This method is duplicating in admin 
     private func logout(){
         let firebaseAuth = Auth.auth()
         do {

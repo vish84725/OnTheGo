@@ -18,9 +18,16 @@ protocol RegisterUserManagerDelegate {
 
 //MARK: - Login User Manager Delegate
 protocol LoginUserManagerDelegate {
-    func didLoginUser(_ authenticationManager: AuthenticationManager)
+    func didLoginUser(_ authenticationManager: AuthenticationManager, userId: String)
     func didLoginUserFailedWithError(error: Error)
     func didLoginUserValidationFailed(error: String)
+}
+
+//MARK: - User Details Delegate
+protocol UserDetailsDelegate {
+    func didUserDetailsLoaded(_ authenticationManager: AuthenticationManager,from user: UserDetails)
+    //func didLoginUserFailedWithError(error: Error)
+    //func didLoginUserValidationFailed(error: String)
 }
 
 
@@ -29,6 +36,7 @@ struct AuthenticationManager{
     //MARK: Properties
     var registerUserManagerdelegate: RegisterUserManagerDelegate?
     var loginUserManagerdelegate: LoginUserManagerDelegate?
+    var userDetailsDelegate: UserDetailsDelegate?
     private let db = Firestore.firestore()
     private let helper = Helper()
     
@@ -150,7 +158,38 @@ struct AuthenticationManager{
                 self.loginUserManagerdelegate?.didLoginUserFailedWithError(error: e)
             }else {
                 //Success loggin
-                self.loginUserManagerdelegate?.didLoginUser(self)
+                self.loginUserManagerdelegate?.didLoginUser(self,userId: (authData?.user.uid)!)
+            }
+        }
+    }
+    
+    func getUser(with userId: String)-> Void{
+        var user: UserDetails? = nil
+        db.collection(K.FStore.User.userCollectionName).whereField(K.FStore.User.userUid, isEqualTo: userId).getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print(err.localizedDescription, Date(), to: &Logger.log)
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    let fName = data[K.FStore.User.firstNameField] as? String
+                    let lName = data[K.FStore.User.lastNameField] as? String
+                    let phoneNumber = data[K.FStore.User.phoneNumber] as? Int
+                    let nic = data[K.FStore.User.nic] as? String
+                    let email = data[K.FStore.User.emailField] as? String
+                    let userRole = data[K.FStore.User.userRole] as? Int
+                    let catId = data[K.FStore.User.productCategory] as? String
+                    
+                    let domUser = UserDetails(email: email!, firstName: fName!, lastName: lName!, uid: userId, userRole: UserRole(rawValue: userRole!)!, phoneNumber: Int(phoneNumber!), nic: nic, categoryId: catId)
+                    
+                    user = domUser
+                    
+                }
+                if user != nil{
+                    self.userDetailsDelegate?.didUserDetailsLoaded(self, from: user!)
+                }else{
+                    //To Do: error must be handled
+                    print("couldnt retrieve logged in user details",Date(),to: &Logger.log)
+                }
             }
         }
     }
