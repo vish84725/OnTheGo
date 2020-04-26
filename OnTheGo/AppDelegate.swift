@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func initLibraries() {
+        //Keyboard Hide Handler
+        IQKeyboardManager.shared.enable = true
         //Configure Firebase
         FirebaseApp.configure()
     }

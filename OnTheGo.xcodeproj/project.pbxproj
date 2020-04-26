@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22766F311753F0C5ACFEDF14 /* libPods-OnTheGo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A7B76539512C4FD97A4D7B /* libPods-OnTheGo.a */; };
 		32445A932454A18A000123EC /* FireStoreUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32445A922454A18A000123EC /* FireStoreUserDetails.swift */; };
 		32445A952454A38D000123EC /* FirestoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32445A942454A38D000123EC /* FirestoreModel.swift */; };
 		32445A972454BB0D000123EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32445A962454BB0D000123EC /* HomeViewController.swift */; };
@@ -37,11 +38,9 @@
 		32F15A2624542E7300A65141 /* ProductCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F15A2524542E7300A65141 /* ProductCategory.swift */; };
 		32F15A2924542F9B00A65141 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F15A2824542F9B00A65141 /* Helper.swift */; };
 		32F15A2B2454335000A65141 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F15A2A2454335000A65141 /* Validator.swift */; };
-		C224538D953EE539DB45639D /* Pods_OnTheGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2898CCFAFE06A4257F8824B6 /* Pods_OnTheGo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2898CCFAFE06A4257F8824B6 /* Pods_OnTheGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32445A922454A18A000123EC /* FireStoreUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreUserDetails.swift; sourceTree = "<group>"; };
 		32445A942454A38D000123EC /* FirestoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreModel.swift; sourceTree = "<group>"; };
 		32445A962454BB0D000123EC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		32F15A2824542F9B00A65141 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		32F15A2A2454335000A65141 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		36D6C03DEA2778B20A72DA32 /* Pods-OnTheGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheGo.release.xcconfig"; path = "Target Support Files/Pods-OnTheGo/Pods-OnTheGo.release.xcconfig"; sourceTree = "<group>"; };
+		65A7B76539512C4FD97A4D7B /* libPods-OnTheGo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnTheGo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1A57BE33033CF3566325BEA /* Pods-OnTheGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheGo.debug.xcconfig"; path = "Target Support Files/Pods-OnTheGo/Pods-OnTheGo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C224538D953EE539DB45639D /* Pods_OnTheGo.framework in Frameworks */,
+				22766F311753F0C5ACFEDF14 /* libPods-OnTheGo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +221,7 @@
 		5C520BD61ADCC1C9BFE87F08 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2898CCFAFE06A4257F8824B6 /* Pods_OnTheGo.framework */,
+				65A7B76539512C4FD97A4D7B /* libPods-OnTheGo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -246,7 +246,7 @@
 				324B68D12452CD6A00B0F706 /* Sources */,
 				324B68D22452CD6A00B0F706 /* Frameworks */,
 				324B68D32452CD6A00B0F706 /* Resources */,
-				D80A1AE008EB64810FB4B1B1 /* [CP] Embed Pods Frameworks */,
+				43391911566F6C49C16F499F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -328,21 +328,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D80A1AE008EB64810FB4B1B1 /* [CP] Embed Pods Frameworks */ = {
+		43391911566F6C49C16F499F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OnTheGo/Pods-OnTheGo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-OnTheGo/Pods-OnTheGo-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OnTheGo/Pods-OnTheGo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-OnTheGo/Pods-OnTheGo-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OnTheGo/Pods-OnTheGo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OnTheGo/Pods-OnTheGo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
